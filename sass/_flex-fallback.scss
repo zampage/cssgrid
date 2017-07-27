@@ -1,6 +1,10 @@
 //--------------------------------
 // STICKY FOOTER FALLBACK
 //--------------------------------
+html{
+  height:100%;
+}
+
 body{
   /* there need to be some bugfixes for IE
    * marked with //bugfix

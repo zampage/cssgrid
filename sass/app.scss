@@ -1,15 +1,5 @@
 @import 'normalize-scss/sass/normalize';
-@import 'mixins';
 @include normalize;
-@include clearfix;
-
-html{
-  height:100%;
-}
-
-.container{
-  width:100%;
-}
 
 $screen-xs-min: 500px;
 $screen-sm-min: 600px;
@@ -22,26 +12,26 @@ $oneThird: 100% / 3;
 
 @import 'element-styles';
 
-//A
-//load flex if browser is IE
-//ignores: B, C
-//because: @supports not supported
+// A
+// load flex if browser is IE
+// ignores: B, C
+// because: @supports not supported
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
   @import 'flex-fallback';
 }
 
-//B
-//load flex if browser can't handle grid
-//ignores: A, C
-//because: @support is supported, grid is not supported
+// B
+// load flex if browser can't handle grid
+// ignores: A, C
+// because: @support is supported, grid is not supported
 @supports not (grid-template-areas:"support"){
   @import 'flex-fallback';
 }
 
-//C
-//load grid if browser supports it
-//ignores: A, B
-//because: @support is supported, grid is supported
+// C
+// load grid if browser supports it
+// ignores: A, B
+// because: @support is supported, grid is supported
 @supports (grid-template-areas:"support") {
   @import 'grid';
 }
