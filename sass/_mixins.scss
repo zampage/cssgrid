@@ -1,0 +1,7 @@
+@mixin clearfix(){
+  .clearfix{
+    float:none;
+    clear:both;
+    display:table;
+  }
+}

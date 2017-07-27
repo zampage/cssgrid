@@ -1,0 +1,39 @@
+//--------------------------------
+// STICKY FOOTER FALLBACK
+//--------------------------------
+body{
+  /* there need to be some bugfixes for IE
+   * marked with //bugfix
+   */
+
+  display:flex;
+  //min-height:100%; //replace for bugfix
+  height:100%; //bugfix
+  flex-direction:column;
+
+  .page-wrapper {
+    //flex:1; //replace for bugfix
+    flex: 1 0 auto; //bugfix
+  }
+
+  footer{
+    flex:none; //bugfix
+  }
+}
+
+//--------------------------------
+// MAIN GRID FALLBACK
+//--------------------------------
+.page{
+  display:flex;
+  flex-wrap:wrap;
+  flex-direction:row;
+
+  .logo{
+    width:calc(100% - #{$navWidth});
+  }
+
+  nav{
+    width:$navWidth;
+  }
+}

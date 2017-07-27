@@ -1,0 +1,61 @@
+//--------------------------------
+// STICKY FOOTER GRID
+//--------------------------------
+body{
+  min-height:100%;
+  display:grid;
+  grid-template-rows: 1fr auto;
+  justify-items:start;
+
+  .page-wrapper{
+    width:100%;
+  }
+
+  footer{
+    grid-row-start:2;
+    grid-row-end:2;
+  }
+}
+
+//--------------------------------
+// MAIN GRID
+//--------------------------------
+.page{
+  width:100%;
+  display:grid;
+
+  .logo{ grid-area:logo; }
+  nav{ grid-area:nav; }
+  header{ grid-area:header; }
+  .intro{ grid-area:intro; }
+  aside{ grid-area:sidebar; }
+  main{ grid-area:content; }
+  footer{ grid-area:footer; }
+
+  grid-template-columns:auto 100px;
+  grid-template-areas:
+          "logo nav"
+          "header header"
+          "intro intro"
+          "sidebar sidebar"
+          "content content";
+
+
+  @media screen and (min-width:#{$screen-sm-min}){
+    grid-template-columns:50% calc(50% - #{$navWidth}) $navWidth;
+    grid-template-areas:
+            "logo logo nav"
+            "header header header"
+            "intro sidebar sidebar"
+            "content sidebar sidebar";
+  }
+
+  @media screen and (min-width:#{$screen-lg-min}){
+    grid-template-columns:$logoWidth calc(#{$twoThird} - #{$logoWidth}) $oneThird;
+    grid-template-areas:
+            "logo nav nav"
+            "header header header"
+            "intro intro intro"
+            "content content sidebar";
+  }
+}

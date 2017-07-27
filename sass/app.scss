@@ -1,19 +1,28 @@
-.grid{
+@import 'normalize-scss/sass/normalize';
+@import 'mixins';
+@include normalize;
+@include clearfix;
+
+html{
+  height:100%;
+}
+
+.container{
   width:100%;
-  display:grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
 
-  & > div{
-    width:100%;
-    height:100%;
-    min-height:120px;
-  }
+$screen-xs-min: 500px;
+$screen-sm-min: 600px;
+$screen-md-min: 900px;
+$screen-lg-min: 1200px;
+$navWidth: 100px;
+$logoWidth: 200px;
+$twoThird: 100% / 3 * 2;
+$oneThird: 100% / 3;
 
-  $max: 15;
-  @for $i from 1 through $max {
-    & > div:nth-of-type(#{$i}) {
-      $col: 255 / $max * $i;
-      background-color:rgb($col, $col, $col);
-    }
-  }
+@import 'element-styles';
+@import 'flex-fallback';
+@supports (grid-template-areas:"support") {
+  @import 'reset-flex-fallback';
+  @import 'grid';
 }
